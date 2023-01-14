@@ -22,8 +22,7 @@ ALTER TABLE highway RENAME COLUMN tollsForTwoWheeler to tollsForBikes;
 
 ALTER TABLE highway DROP COLUMN sandType;
 
-SELECT * FROM highway;
-INSERT INTO highway VALUES(1,'KarnatakaHighway','NH 44',3745,4,35,40,49,50,60,true,false,true,'srinagar','kanyakumari',true,0802348599,2,70,true,false,true,3,6,true,true,1.3,36,'ahsaCompany',4,'2019-03-13',true,false);
+ INSERT INTO highway VALUES(1,'KarnatakaHighway','NH 44',3745,4,35,40,49,50,60,true,false,true,'srinagar','kanyakumari',true,0802348599,2,70,true,false,true,3,6,true,true,1.3,36,'ahsaCompany',4,'2019-03-13',true,false);
 INSERT INTO highway VALUES(2,'GujaratHighway','NH 27',3507,1,23,41,45,51,61,true,false,true,'Porbandar in Gujarat','Silchar in Assam',true,0802348599,2,70,true,false,true,3,6,true,true,1.3,36,'spoorthyCompany',4,'2019-03-13',true,false);
 INSERT INTO highway VALUES(3,'KarnatakaHighway','NH 7',376,2,24,42,45,52,62,true,false,true,'Delhi','Chennai',true,0802348599,2,70,true,false,true,3,6,true,true,1.3,36,'appuCompany',4,'2019-03-13',true,false);
 INSERT INTO highway VALUES(4,'KarnatakaHighway','NH 8',374,3,25,43,49,53,63,true,false,true,'Sangrur','Karnataka',true,0802348599,2,70,true,false,true,3,6,true,true,1.3,36,'abhiCompany',4,'2019-03-13',true,false);
@@ -57,4 +56,42 @@ ALTER TABLE highway RENAME COLUMN highwayLength to km;
 ALTER TABLE highway RENAME COLUMN tollsForBikes to tollsForTwoWheelers;
 
 ALTER TABLE highway DROP COLUMN highwayName;
+SELECT * FROM highway;
+
+SELECT * FROM highway WHERE id=2;
+SELECT km FROM highway WHERE km = 837;
+SELECT highwayNum FROM highway WHERE highwayNum = 'NH44';
+SELECT tollsForTwoWheelers FROM highway WHERE tollsForTwoWheelers = 35;
+SELECT id , km,startingFrom FROM highway WHERE id = 4;
+SELECT id,highwayNum FROM highway WHERE km = 357;
+SELECT id,highwayNum FROM highway WHERE id = 7;
+SELECT id,highwayNum FROM highway WHERE km = 137;
+SELECT id,highwayNum FROM highway WHERE startingFrom = 'srinagar';
+SELECT id,highwayNum FROM highway WHERE EndingAt = 'kanyakumari';
+
+SELECT * FROM highway where startingFrom = 'panvel' AND EndingAt = 'Chennai';
+SELECT * FROM highway where EndingAt = 'kanyakumari' AND startingFrom = 'srinagar';
+SELECT * FROM highway where thickness = 36 AND EndingAt = 'kanyakumari';
+SELECT * FROM highway where ConstructionCompany = 'vinodaCompany' AND noOfHotel = 3;
+SELECT * FROM highway where noOfTolls = 20 AND noOflanes = 2;
+
+SELECT * FROM highway where highwayNum = 'NH35' OR id= 2;
+SELECT * FROM highway where highwayNum = 'NH44' OR id= 8;
+SELECT * FROM highway where EndingAt = 'kanyakumari' OR id= 9;
+SELECT * FROM highway where highwayNum = 'NH26' OR km= 37;
+SELECT * FROM highway where tollsForFourWheeler = 45 OR id= 7;
+
+UPDATE highway SET ccCamera = 2 ;
+UPDATE highway SET fastag = 3 ;
+UPDATE highway SET noOfTolls = 2 ;
+UPDATE highway SET tollsForTwoWheelers = 25 ;
+UPDATE highway SET ccCamera = 7 ;
+UPDATE highway SET tollsForThreeWheeler =45 ;
+UPDATE highway SET speedLimit = 60 ;
+UPDATE highway SET chatsAvailable = true ;
+UPDATE highway SET colorBlack = false ;
+UPDATE highway SET clean = false ;
+
+
+
 commit;
